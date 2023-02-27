@@ -1,3 +1,3 @@
 module gitlab.com/maleksah/hello-go
 
-go 1.20
+go 1.19
