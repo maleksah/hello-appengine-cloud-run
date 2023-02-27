@@ -6,9 +6,10 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 200px;
         }
         
-        .axolot {
+        .gopher {
             width: 300px;
             height: 300px;
         }
@@ -17,7 +18,20 @@
     <title>Hello Sfeir</title>
 </head>
 <body class="container">
-<image class="axolot" src="/assets/dancing-gopher.gif" />
+<image class="gopher" src="/assets/dancing-gopher.gif" alt="gopher"></image>
 <h3>Hello Google Cloud onboard !</h3>
+<p>App version: v1</p>
+<p>
+{{ if .GaeApplication }}
+    This created deployment <code>{{.GaeVersion}}</code> of the App engine Application <code>{{.GaeApplication}}</code>
+{{ else if .CrService }}
+    This created the revision <code>{{.CrRevision}}</code> of the Cloud Run service <code>{{.CrService}}</code>
+{{ else }}
+    This server <strong>does not</strong> seem to be running on Cloud Run or App Engine.
+{{ end }}
+{{if .Region}} in <code>{{.Region}}</code>{{end}}
+{{if .Project}} in the GCP project <code>{{.Project}}</code>{{end}}
+</p>
+
 </body>
 </html>
