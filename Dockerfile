@@ -16,7 +16,7 @@ COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o server
 
 # Use the official Alpine image for a lean production container.
-FROM alpine:3
+FROM alpine:3.17.2
 
 # Copy the binary to the production image from the builder stage.
 COPY --from=builder /app/server /server
