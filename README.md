@@ -31,7 +31,7 @@ docker build -t europe-west9-docker.pkg.dev/onboard-demo-20230313/google-cloud-o
 
 Push docker image to Artifact registry
 ````shell
-docker push europe-west9-docker.pkg.dev/onboard-demo-20230313/google-cloud-onboard/hello:v2 .
+docker push europe-west9-docker.pkg.dev/onboard-demo-20230313/google-cloud-onboard/hello:v2
 ````
 
 ````shell
