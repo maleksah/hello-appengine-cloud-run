@@ -1,0 +1,8 @@
+steps:
+  # Launch tests
+  - name: 'golang:1.19'
+    entrypoint: /bin/bash
+    args:
+      - -c
+      - |
+        go test -v
