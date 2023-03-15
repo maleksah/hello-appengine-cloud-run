@@ -1,0 +1,12 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'europe-west9-docker.pkg.dev/$PROJECT_ID/google-cloud-onboard/hello:$SHORT_SHA', '.']
+
+  # Push the container image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'europe-west9-docker.pkg.dev/$PROJECT_ID/google-cloud-onboard/hello:$SHORT_SHA']
+
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'hello-google-cloud-onboard', '--image', 'europe-west9-docker.pkg.dev/$PROJECT_ID/google-cloud-onboard/hello:$SHORT_SHA', '--region', 'europe-west9', '--platform', 'managed', '--allow-unauthenticated']
