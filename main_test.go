@@ -5,5 +5,5 @@ import (
 )
 
 func TestMock(t *testing.T) {
-	//t.Fatal("Test failed")
+	t.Fatal("Test failed")
 }
